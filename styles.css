@@ -1,0 +1,234 @@
+/*
+========================= NoteBook =========================
+*/
+
+#NoteBookButtons{
+	background-color: #BBBBBB;
+	/*height: 41px;*/
+}
+
+#NoteBook{
+	background-color: #888888;
+    width: 100%;
+}
+
+.NoteBookButton{
+    background-color: #EEEEEE;
+	font-size: 30px;
+	font-weight: bold;
+	outline: none;
+	border: 0px;
+	margin-right: 10px;
+}
+
+.NoteBookButton:hover{
+    background-color: #DDDDDD;
+	border: 0px;
+}
+
+.NoteBookButtonSelected{
+    background-color: #AAAAAA;
+	font-size: 30px;
+	font-weight: bold;
+	border: 3px solid black;
+	border-bottom: 0px;
+	margin-right: 10px;
+}
+.NoteBookContent{
+    display: none;
+}
+
+.NoteBookContents{
+	background-color: #AAAAAA;
+	height: 100%;
+}
+
+#NoteBookContents{
+	overflow: scroll;
+	width: 100%;
+}
+
+
+/*
+========================= ListView =========================
+*/
+
+
+.ListViewTable{
+    border: 1px solid black;
+    
+    /*width: 100%;height: 100%;*/
+	overflow: scroll;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+.ListViewRow{
+    border: 1px solid black;
+}
+
+.ListViewHeader{
+	font-size: 30px;
+	font-weight: bold;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+	color: #111111;
+	background-color: #DDDDDD;
+    width: 10px;
+    border: 1px solid black;
+}
+
+.ListViewHeaderResizer{
+	resize: horizontal;
+	color: #111111;
+	background-color: #DDDDDD;
+	overflow: auto;
+	min-width: 200px;
+}
+
+.ListViewItem{
+	font-size: 20px;
+	color: #333333;
+	background-color: #DDDDDD;
+    border: 1px solid black;
+	overflow: auto;
+	width: auto;
+}
+
+.ListViewNumber{
+	width: 100%;
+}
+
+.ListViewString{
+	width: 100%;
+}
+
+.ListViewBoolean{
+	width: 90%;
+}
+
+
+/*
+========================= TreeView =========================
+*/
+
+
+ul, .TreeView {
+  list-style-type: none;
+}
+
+.TreeView {
+  margin: 0;
+  padding: 0;
+}
+
+.TreeViewCaret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.TreeViewCaret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.TreeViewCaret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.TreeViewNested {
+  display: none;
+}
+
+.TreeViewActive {
+  display: block;
+}
+
+
+/*
+========================= Id's =========================
+*/
+
+
+#TopBarButtons{
+	overflow-x: auto;
+	background-color: #BBBBBB;
+}
+
+#SideBar{
+	height: 100%;
+	background-color: #BBBBBB;
+	overflow:auto;
+}
+
+
+/*
+========================= Positioning =========================
+*/
+
+
+.grid{
+	table-layout:fixed;
+	text-align: left;
+	vertical-align: top;
+	border-collapse:collapse;
+}
+
+.row{
+	column-span: all;
+	border:none;
+}
+
+
+/*
+========================= Styles =========================
+*/
+
+
+html, body{
+	background-color: #333333;
+}
+
+.button{
+    background-color: #CCCCCC;
+	font-size: 15px;
+	font-weight: bold;
+	outline: none;
+	margin-right: 10px;
+	margin-top: 10px;
+	border-radius: 10px;
+	border: 2px solid black;
+}
+
+.popup{
+    background-color: #777777;
+	border-radius: 10px;
+	border: 2px solid black;
+	position: fixed;
+	top: calc( 50% - 200px );
+	left: calc( 50% - 200px );
+	width: 400px;
+	height: 400px;
+	overflow: auto;
+	display: none;
+}
+
+.listBox{
+	width: 100%;
+	background-color: #00000000;
+	border: 1px solid black;
+}
