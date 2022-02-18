@@ -4,13 +4,13 @@
 		<title>My web-site</title>
 		<style>
 			h1 {
-				font-size: 40;
+				font-size: 45px;
 			}
 			p {
-				font-size: 35;
+				font-size: 40px;
 			}
 			span {
-				font-size: 50;
+				font-size: 100px;
 			}
 		</style>
 	</head>
@@ -21,20 +21,22 @@
     </body>
 	<script>
 		const span = document.getElementById("loading")
-		var n = 0;
+		var n = 0, s= "&nbsp";
 		function loop(){
 			switch (n){
 				case 0:
-					span.innerHTML = "|"
+					span.innerHTML = s+"&#9474;" //|
 					break;
 				case 1:
-					span.innerHTML = "/"
+					span.innerHTML = s+"&#9585;" ///
+					s+="&nbsp"
 					break;
 				case 2:
-					span.innerHTML = "-"
+					span.innerHTML = s+"&#9473;" //-
 					break;
 				case 3:
-					span.innerHTML = "\\"
+					span.innerHTML = s+"&#9586;" //\
+					s+="&nbsp"
 					n=-1;
 					break;
 			}
