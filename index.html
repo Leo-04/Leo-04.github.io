@@ -123,6 +123,7 @@
 		}
 		function loop(){
 			getLocation();
+            setTimeout(loop, 300)
         }
         navigator.permissions.query({name:'geolocation'})
 		loop()
