@@ -111,10 +111,10 @@
 		  var lat=position.coords.latitude;
 		  var long=position.coords.longitude;
 			gps_loc.innerHTML = "Long:"+long+" lat:"+lat;
-            from_long = parseInt(from_long_loc.value)
-            to_long = parseInt(to_long_loc.value)
-            from_lat = parseInt(from_lat_loc.value)
-            to_lat = parseInt(to_lat_loc.value)
+            from_long = parseFloat(from_long_loc.value)
+            to_long = parseFloat(to_long_loc.value)
+            from_lat = parseFloat(from_lat_loc.value)
+            to_lat = parseFloat(to_lat_loc.value)
             if ((lat >=from_lat && lat <= to_lat) && (long >= from_long && long <= to_long)){
                 yes_no.innerHTML = "Yes";
             } else {
@@ -129,3 +129,4 @@
 		loop()
 	</script>
 </html>
+
