@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 	<head>
 		<title>My web-site</title>
@@ -61,6 +61,70 @@
 			n++;
 			setTimeout(loop, 300)
 		}
+		loop()
+	</script>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My web-site</title>
+		<style>
+			h1 {
+				font-size: 45px;
+			}
+			p {
+				font-size: 40px;
+			}
+			span {
+				font-size: 100px;
+			}
+		</style>
+	</head>
+    <body>
+        <p>loaded?</p>
+        <input id="from_long_loc" name="from_long_loc">
+        <input id="to_long_loc" name="to_long_loc">
+        <input id="from_lat_loc" name="from_lat_loc">
+        <input id="to_lat_loc" name="to_lat_loc">
+		<span id="gpsLOC"></span><br>
+		<span id="yes_no"></span>
+    </body>
+	<script>
+		const yes_no = document.getElementById("yes_no")
+		const gps_loc = document.getElementById("gpsLOC")
+		const from_long_loc = document.getElementById("from_long_loc")
+		const to_long_loc = document.getElementById("to_long_loc")
+		const from_lat_loc = document.getElementById("from_lat_loc")
+		const to_lat_loc = document.getElementById("to_lat_loc")
+		
+		
+		function getLocation() {
+		  if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		  } else { 
+		    gps_loc.innerHTML = "Geolocation is not supported by this browser.";
+		  }
+		}
+
+		function showPosition(position) {
+		  var lat=position.coords.latitude;
+		  var long=position.coords.longitude;
+			gps_loc.innerHTML = "Long:"+long+" lat:"+lat;
+            from_long = parseInt(from_long_loc.value)
+            to_long = parseInt(to_long_loc.value)
+            from_lat = parseInt(from_lat_loc.value)
+            to_lat = parseInt(to_lat_loc.value)
+            if ((lat >=from_lat && lat <= to_lat) && (long >= from_long && long <= to_long)){
+                yes_no.innerHTML = "Yes";
+            } else {
+                yes_no.innerHTML = "No";
+            }
+		}
+		function loop(){
+			getLocation();
+        }
+        navigator.permissions.query({name:'geolocation'})
 		loop()
 	</script>
 </html>
