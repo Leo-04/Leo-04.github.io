@@ -12,7 +12,9 @@
       var is_mobile = window.orientation !== undefined
       var change = document.getElementById("change")
       var debug = document.getElementById("debug")
-      debug.innerHTML = "Debug: " + is_mobile + " " + window.orientation
+      var vertical = window.innerWidth < window.innerHeight;
+     
+      debug.innerHTML = "Debug: " + is_mobile + " " + window.orientation + " " + vertical
      
       if (!is_mobile){
         change.innerHTML = "Not "; 
