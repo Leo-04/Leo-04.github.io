@@ -5,12 +5,15 @@
   
   <body>
     <p>You Are <span id="change"></span>On A Mobile Device</p>
+    <span id="debug"></span>
   </body>
       
    <script>
       var is_mobile = window.orientation !== undefined
       var change = document.getElelemntById("change")
-      
+      var debug = document.getElelemntById("debug")
+      debug.innerHTML = "Debug: " + is_mobile + " " + window.orientation
+     
       if (!is_mobile){
         change.innerHTML = "Not"; 
       }
