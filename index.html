@@ -1,23 +1,23 @@
 <html>
-  <head>
-    <title>Testing</title>
-  </head>
-  
-  <body>
-    <p>You Are <span id="change"></span>On A Mobile Device</p>
-    <span id="debug"></span>
-  </body>
-      
-   <script>
-      var is_mobile = window.orientation !== undefined
-      var change = document.getElementById("change")
-      var debug = document.getElementById("debug")
-      var vertical = window.innerWidth < window.innerHeight;
-     
-      debug.innerHTML = "Debug: " + is_mobile + " " + window.orientation + " " + vertical
-     
-      if (!is_mobile){
-        change.innerHTML = "Not "; 
-      }
-   </script>
+	<head>
+		<title>PAE</title>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<div id="topbar">
+			<button style="height: 100%; width: 25%;" class="button">New</button>
+			<button style="height: 100%; width: 25%;" class="button">Open</button>
+			<button style="height: 100%; width: 25%;" class="button">Save</button>
+			<button style="height: 100%; width: 25%;" class="button">Menu</button>
+		</div>
+		<div id="toolbar">
+			b
+		</div>
+		<canvas id="canvas" width=1 height=1>
+			
+		</canvas>
+		<div id="colorbuttons">
+			c
+		</div>
+	<body>
 </html>
