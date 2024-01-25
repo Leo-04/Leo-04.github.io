@@ -1,5 +1,5 @@
 function New(){
-	
+	Draw();
 }
 function Open(){
 	
