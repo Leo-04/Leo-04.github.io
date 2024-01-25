@@ -12,25 +12,42 @@
 			<button onclick="Undo()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Undo</button>
 			<button onclick="Redo()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Redo</button>
 		</div>
-		<canvas id="canvas" width=1 height=1>
+		<canvas id="canvas" width=80 height=80>
 			No Canvas :(
 		</canvas>
-		<div id="Menu">
+		<div id="Menu" class="popup">
 			<button onclick="Resize()" style="height: calc( ( 100% - 60px )/ 8);width: 100%;" class="button">Resize</button>
 			<div style="height: 10px;"></div>
+			
 			<label style="height: calc( ( 100% - 60px )/ 8);width: 100%;" for="grid">Grid</label>
 			<input style="min-height: calc( ( 100% - 60px )/ 8); width: 100%;" class="input" type="checkbox" id="grid" name="grid" checked>
 			<div style="height: 10px;"></div>
-			<label style="height: calc( ( 100% - 60px )/ 8);" for="number">Major grid:</label>
+			
+			<label style="height: calc( ( 100% - 60px )/ 8);" for="number">Grid size:</label>
 			<input style="height: calc( ( 100% - 60px )/ 8);width: 100%;" class = "input" type="number" id="major" name="number" min="0" value=2>
 			<div style="height: 10px;"></div>
-			<button onclick="ColorPicker()" id="grid_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #FFFFFFFF; color: #000000FF;" class="button">Grid Color</button>
+			
+			<button onclick="ColorPicker()" id="grid_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #222222FF; color: #000000FF;" class="button">Grid Color</button>
 			<div style="height: 10px;"></div>
-			<button onclick="ColorPicker()" id="major_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #FFFFFFFF; color: #000000FF;" class="button">Major Grid Color</button>
+			
+			<button onclick="ColorPicker()" id="major_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #444444FF; color: #000000FF;" class="button">Major Grid Color</button>
 			<div style="height: 10px;"></div>
+			
 			<button onclick="ColorPicker()" id="bg_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #000000FF; color: #FFFFFFFF;" class="button">Background Color</button>
 			<div style="height: 10px;"></div>
+			
 			<button onclick="Export()" style="height: calc( ( 100% - 60px )/ 8); width: 100%;" class="button">Export</button>
+		</div>
+		<div id="Resize" class="popup">
+			<label style="height: calc( ( 100% - 60px )/ 5);" for="number">Width:</label>
+			<input style="height: calc( ( 100% - 60px )/ 5);width: 100%;" class = "input" type="number" id="width" name="number" min="1" value=8>
+			<div style="height: 10px;"></div>
+			
+			<label style="height: calc( ( 100% - 60px )/ 5);" for="number">Height:</label>
+			<input style="height: calc( ( 100% - 60px )/ 5);width: 100%;" class = "input" type="number" id="height" name="number" min="1" value=8>
+			<div style="height: 10px;"></div>
+			
+			<button onclick="DoResize()" style="height: calc( ( 100% - 60px )/ 5);width: 100%;" class="button">Resize</button>
 		</div>
 		<div id="colorbuttons">
 			<button onclick="C1()" id="c1" style="float: left; height: 100%; width: calc(100%/4);background-color: #FFFFFFFF; color: #000000FF;" class="button">Color 1</button>

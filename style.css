@@ -17,6 +17,8 @@
 	height: 80%;
 	max-height: ;
 	background-color: #000000;
+	image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 #colorbuttons{
 	position: absolute;
@@ -27,7 +29,7 @@
 	background-color: blue;
 	background-color: #222222;
 }
-#menu {
+.popup {
 	height: 50%; width: 75%;
 	
 	position: absolute;
