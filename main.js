@@ -84,6 +84,8 @@ window.onload = function(){
 	C1()
 	
 	setInterval(Draw, 100);
+	
+	console.log(typeof(c3.style.backgroundColor));
 }
 window.onresize = function(){
 	ctx.canvas.width = canvas.clientWidth;
@@ -125,4 +127,12 @@ function Draw(){
 		}
 	}
 	ctx.fill();
+}
+
+
+function Download(){
+	var link = document.createElement('a');
+	link.download = "image.png";
+	link.href = canvas.toDataURL()
+	link.click();
 }
