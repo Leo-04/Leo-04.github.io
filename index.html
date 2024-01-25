@@ -5,21 +5,39 @@
 	</head>
 	<body>
 		<div id="toolbar">
-			<button style="height: 100%; width: calc(100%/6);" class="button">New</button>
-			<button style="height: 100%; width: calc(100%/6);" class="button">Open</button>
-			<button style="height: 100%; width: calc(100%/6);" class="button">Save</button>
-			<button style="height: 100%; width: calc(100%/6);" class="button">Menu</button>
-			<button style="height: 100%; width: calc(100%/6);" class="button">Undo</button>
-			<button style="height: 100%; width: calc(100%/6);" class="button">Redo</button>
+			<button onclick="New()" style="float: left; height: 100%; width: calc(100%/6);" class="button">New</button>
+			<button onclick="Open()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Open</button>
+			<button onclick="Save()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Save</button>
+			<button onclick="Menu()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Menu</button>
+			<button onclick="Undo()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Undo</button>
+			<button onclick="Redo()" style="float: left; height: 100%; width: calc(100%/6);" class="button">Redo</button>
 		</div>
 		<canvas id="canvas" width=1 height=1>
 			No Canvas :(
 		</canvas>
+		<div id="Menu">
+			<button onclick="Resize()" style="height: calc( ( 100% - 60px )/ 8);width: 100%;" class="button">Resize</button>
+			<div style="height: 10px;"></div>
+			<label style="height: calc( ( 100% - 60px )/ 8);width: 100%;" for="grid">Grid</label>
+			<input style="min-height: calc( ( 100% - 60px )/ 8); width: 100%;" class="input" type="checkbox" id="grid" name="grid" checked>
+			<div style="height: 10px;"></div>
+			<label style="height: calc( ( 100% - 60px )/ 8);" for="number">Major grid:</label>
+			<input style="height: calc( ( 100% - 60px )/ 8);width: 100%;" class = "input" type="number" id="major" name="number" min="0" value=2>
+			<div style="height: 10px;"></div>
+			<button onclick="ColorPicker()" id="grid_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #FFFFFFFF; color: #000000FF;" class="button">Grid Color</button>
+			<div style="height: 10px;"></div>
+			<button onclick="ColorPicker()" id="major_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #FFFFFFFF; color: #000000FF;" class="button">Major Grid Color</button>
+			<div style="height: 10px;"></div>
+			<button onclick="ColorPicker()" id="bg_color" style="height: calc( ( 100% - 60px )/ 8);width: 100%;background-color: #000000FF; color: #FFFFFFFF;" class="button">Background Color</button>
+			<div style="height: 10px;"></div>
+			<button onclick="Export()" style="height: calc( ( 100% - 60px )/ 8); width: 100%;" class="button">Export</button>
+		</div>
 		<div id="colorbuttons">
-			<button style="height: 100%; width: calc(100%/4);background-color: #FFFFFFFF; color: #000000FF;" class="button">Color 1</button>
-			<button style="height: 100%; width: calc(100%/4);background-color: #000000FF; color: #FFFFFFFF;" class="button">Color 2</button>
-			<button style="height: 100%; width: calc(100%/4);background-color: #00000000; color: #FFFFFFFF;" class="button">Color 3</button>
-			<button style="height: 100%; width: calc(100%/4);" class="button">Color Picker</button>
+			<button onclick="C1()" id="c1" style="float: left; height: 100%; width: calc(100%/4);background-color: #FFFFFFFF; color: #000000FF;" class="button">Color 1</button>
+			<button onclick="C2()" id="c2" style="float: left; height: 100%; width: calc(100%/4);background-color: #000000FF; color: #FFFFFFFF;" class="button">Color 2</button>
+			<button onclick="C3()" id="c3" style="float: left; height: 100%; width: calc(100%/4);background-color: #00000000; color: #FFFFFFFF;" class="button">Color 3</button>
+			<button onclick="ColorPicker()" style="float: left; height: 100%; width: calc(100%/4);" class="button">Color Picker</button>
 		</div>
 	<body>
+	<script src="./main.js"></script>
 </html>
