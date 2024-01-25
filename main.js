@@ -87,10 +87,6 @@ window.onload = function(){
 	
 	console.log(typeof(c3.style.backgroundColor));
 }
-window.onresize = function(){
-	ctx.canvas.width = canvas.clientWidth;
-    ctx.canvas.height = canvas.clientHeight;
-}
 
 function Press(){
 	
@@ -104,6 +100,9 @@ function Release(){
 
 
 function Draw(){
+	ctx.canvas.width = canvas.clientWidth;
+    ctx.canvas.height = canvas.clientHeight;
+	
 	var grid_size=parseInt(major.value);
 	
 	if (!grid.checked){
@@ -117,7 +116,7 @@ function Draw(){
 	var start_y = Math.floor((canvas.clientHeight-(pixel_size*height))/2);
 	
 	ctx.fillStyle = bg_color.style.backgroundColor;
-	ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+	ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 	for (var x=0; x<width; x++){
 		for (var y=0; y<height; y++){
 			ctx.fillStyle = grid_color.style.backgroundColor;
