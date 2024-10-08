@@ -13,8 +13,8 @@ Camp---zone---pressure---rushdown
 
 > ## Watch out for:
 >- 20%+: dair
->>- dash back grab undershoot dair
->>- nair / Fair overshoot dair
+>    >- dash back grab undershoot dair
+>    >- nair / Fair overshoot dair
 >- shine
 >>- not as big as foxes, so can nair / Fair it
 >>- can also grab if close enough
