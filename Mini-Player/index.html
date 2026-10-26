@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Meta Data -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Mini-Player-V2</title>
+
+		<!-- Style -->
+		<link rel="stylesheet" href="style.css">
+
+		<!-- No Caheing Please -->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+	</head>
+	<body>
+		<!-- Track List -->
+		<div id="tracks">
+			
+			<!-- Add Button -->
+			<div id="add_frame">
+				<label id="add_label" class="add-button" for="audio_input_field">
+					<svg id="add_label_svg" fill="var(--FG)" height="75px" width="75px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M256,11C120.9,11,11,120.9,11,256s109.9,245,245,245s245-109.9,245-245S391.1,11,256,11z M256,460.2 c-112.6,0-204.2-91.6-204.2-204.2S143.4,51.8,256,51.8S460.2,143.4,460.2,256S368.6,460.2,256,460.2z"></path> <path d="m357.6,235.6h-81.2v-81.2c0-11.3-9.1-20.4-20.4-20.4-11.3,0-20.4,9.1-20.4,20.4v81.2h-81.2c-11.3,0-20.4,9.1-20.4,20.4s9.1,20.4 20.4,20.4h81.2v81.2c0,11.3 9.1,20.4 20.4,20.4 11.3,0 20.4-9.1 20.4-20.4v-81.2h81.2c11.3,0 20.4-9.1 20.4-20.4s-9.1-20.4-20.4-20.4z"></path> </g> </g> </g></svg>
+				</label>
+
+				<!-- Hidden Upload -->
+				<input
+					id="audio_input_field" class="input_field"
+					type="file" multiple
+					onchange="LoadFiles(event);"
+				>
+				
+				<!-- Would Have EQ button here but the EQ doesn't work well -->
+			</div>
+
+			<!-- Introduction frame -->
+			<div id="intro">
+				<p id="message">Use button above to add music files.<br><br></p>
+				<a id="data_url">Please enable JavaScript</a>
+			</div>
+		</div>
+
+		<!-- Seekbar and Time -->
+		<div id="seek_bar">
+			<span id="current_time">00:00:00</span>
+			<input
+				id="seeker"
+				type="range" min="0" max="1000" value="0"
+				oninput="SeekTo(seeker.value / seeker.max);"
+			>
+			<span
+				id="duration"
+				onclick="logger.style.display='block';"
+			>
+				00:00:00
+			</span>
+		</div>
+
+		<!-- Player Controls -->
+		<div id="controls">
+			<!-- Shuffle -->
+			<button 
+				id="shuffle"
+				class="control-button"
+				onclick="Shuffle()"
+			></button>
+			
+			<!-- Previous -->
+			<button
+				class="control-button"
+				onclick="PrevTrack()"
+			>
+				<svg height="100%" width="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 6V18M11.4761 12.7809L16.3753 16.7002C17.0301 17.2241 18 16.7579 18 15.9194V8.08062C18 7.24212 17.0301 6.77595 16.3753 7.29976L11.4761 11.2191C10.9757 11.6195 10.9757 12.3805 11.4761 12.7809Z" stroke="var(--FG)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+			</button>
+
+			<!-- Play / Pause -->
+			<button
+				id="play_pause"
+				class="control-button"
+				onclick="PlayPause()"
+			></button>
+			
+			<!-- Next -->
+			<button
+				class="control-button"
+				onclick="NextTrack()"
+			>
+				<svg height="100%" width="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17 6V18M13.5239 12.7809L8.6247 16.7002C7.96993 17.2241 7 16.7579 7 15.9194V8.08062C7 7.24212 7.96993 6.77595 8.6247 7.29976L13.5239 11.2191C14.0243 11.6195 14.0243 12.3805 13.5239 12.7809Z" stroke="var(--FG)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+			</button>
+			
+			<!-- Loop Type -->
+			<button
+				id="loop"
+				class="control-button"
+				onclick="LoopTrack()"
+			></button>
+		</div>
+		
+		<!-- Debug Console -->
+		<div
+			id="logger"
+			onclick="logger.style.display = 'none';"
+		></div>
+	</body>
+	
+	<!-- For metadata, can be loaded offline -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+	
+	<!-- Scripts -->
+	<script src="logger.js"></script>
+	<script src="media.js"></script>
+	<script src="load_audio.js"></script>
+	<script src="track_list.js"></script>
+	<script src="seekbar.js"></script>
+	<script src="controls.js"></script>
+	<script src="drag_and_drop.js"></script>
+	<script src="data_url.js"></script>
+</html>
